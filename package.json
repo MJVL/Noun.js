@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/MJVL/Unoriginal.js/issues"
   },
-  "homepage": "https://github.com/MJVL/Unoriginal.js#readme"
+  "homepage": "https://github.com/MJVL/Unoriginal.js#readme",
+  "dependencies": {
+    "typed.js": "^2.0.8"
+  }
 }
