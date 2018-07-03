@@ -1,14 +1,13 @@
 body {
     background-color: #243146;
+    font-family: 'PT Sans', sans-serif;
 }
 
-div {
-    width: 100px;
-    height: 100px;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-}
+.flex-center {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    position: fixed;
+    align-items: center;
+    justify-content: center;
+  }
