@@ -1,0 +1,19 @@
+{
+  "name": "unoriginal",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "test": "start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MJVL/Unoriginal.js.git"
+  },
+  "author": "Michael Van Leeuwen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MJVL/Unoriginal.js/issues"
+  },
+  "homepage": "https://github.com/MJVL/Unoriginal.js#readme"
+}
