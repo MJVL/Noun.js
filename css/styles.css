@@ -4,6 +4,17 @@ body {
     font-family: 'PT Sans', sans-serif;
 }
 
+#icon-tray {
+    position: relative;
+}
+
+#icon-tray img {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+
 .flex-center {
     height: 100%;
     width: 100%;
