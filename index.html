@@ -12,10 +12,10 @@
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <title>Noun.js</title>
 </head>
-<body>
-    <div id="icon-tray">
-        <img src="assets/search.png" id="search" class="ribbon" v-on:click="searchForName"/>
-        <img src="assets/github.png" id="repository" class="ribbon" v-on:click="travelToRepository"/>
+<body class="noselect">
+    <div id="icon-tray" class>
+        <img src="assets/search.png" id="search" v-on:click="searchForName"/>
+        <img src="assets/github.png" id="repository" v-on:click="travelToRepository"/>
     </div>
     <div id="generated-name" class="flex-center">
         <h1 v-on:click="randomWord">{{ package }}</h1>
