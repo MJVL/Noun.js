@@ -19,7 +19,7 @@ var tray = new Vue({
     el: '#icon-tray',
     methods: {
         searchForName: function() {
-            window.open(' https://www.google.com/search?q=' + generator.name);
+            window.open('https://www.google.com/search?q=' + generator.name);
         },
         travelToRepository: function() {
             window.open('https://github.com/MJVL/Noun.js');
