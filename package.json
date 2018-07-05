@@ -1,5 +1,5 @@
 {
-  "name": "unoriginal",
+  "name": "Noun.js",
   "version": "1.0.0",
   "description": "",
   "main": "index.html",
@@ -8,15 +8,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MJVL/Unoriginal.js.git"
+    "url": "git+https://github.com/MJVL/Noun.js.git"
   },
   "author": "Michael Van Leeuwen",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/MJVL/Unoriginal.js/issues"
+    "url": "https://github.com/MJVL/Noun.js/issues"
   },
-  "homepage": "https://github.com/MJVL/Unoriginal.js#readme",
+  "homepage": "https://github.com/MJVL/Noun.js#readme",
   "dependencies": {
-    "typed.js": "^2.0.8"
+    "typed.js": "^2.0.8",
+    "vue": "^2.5.16"
   }
 }
