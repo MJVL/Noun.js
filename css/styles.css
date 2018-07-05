@@ -12,6 +12,8 @@ body {
     position: absolute;
     top: 0px;
     right: 0px;
+    width: 100px;
+    cursor: pointer;
 }
 
 .flex-center {
