@@ -19,6 +19,7 @@ body {
     right: 0px;
 }
 
+
 #icon-tray #search {
     right: 120px; 
 }
@@ -33,4 +34,9 @@ body {
 
 .flex-center h1 {
     cursor: pointer;
+}
+
+.flex-center p {
+    text-align: center;
+    font-size: 50%;
 }
