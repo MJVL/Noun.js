@@ -1,12 +1,19 @@
 var generator = new Vue({
     el: '#generated-name',
     data: {
-        name: DEFAULT
+        name: DEFAULT,
+        exists: true,
+        result: 'This repository does exist.'
     },
     methods: {
         randomWord: function() {
             this.name = NOUNS[Math.floor(Math.random() * NOUNS.length)];
             this.name = this.name.charAt(0).toUpperCase() + this.name.substr(1) + EXTENSION;
+            this.checkExistence();
+        },
+        checkExistence: function() {
+            //this.exists =
+            this.result = 'This repository does' + ((this.exists) ? '' : "n't") + ' exist.'; 
         }
     }
 })
