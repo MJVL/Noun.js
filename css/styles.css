@@ -16,6 +16,15 @@ body {
     cursor: pointer;
 }
 
+#icon-tray #repository {
+    right: 0px;
+}
+
+
+#icon-tray #search {
+    right: 120px; 
+}
+
 .flex-center {
     position: fixed;
     top: 50%;
