@@ -1,7 +1,7 @@
 {
   "name": "Noun.js",
   "version": "1.0.0",
-  "description": "Basic website poking fun at dull JavaScript library/framework naming conventions.",
+  "description": "Website poking fun at dull JavaScript library/framework naming conventions.",
   "main": "index.html",
   "scripts": {
     "test": "start"
