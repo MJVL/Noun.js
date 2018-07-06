@@ -7,12 +7,21 @@
     <meta name="author" content="Michael Van Leeuwen">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Icons -->
 	<link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
 	<link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
     <link rel="stylesheet" href="css/styles.css">
     <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+
+    <!-- Scripts -->
     <script src="js/constants.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
     <title>Noun.js</title>
 </head>
 <body class="noselect">
@@ -20,10 +29,37 @@
         <img src="assets/search.png" id="search" v-on:click="searchForName"/>
         <img src="assets/github.png" id="repository" v-on:click="travelToRepository"/>
     </div>
-    <div id="generated-name" class="flex-center">
-        <h1 v-on:click="randomWord">{{ package }}</h1>
-        <p><i>{{ result }}</i></p>
+    <div id="main" class="flex-center">
+        <!-- Display of the randomized name -->
+        <div id="generated-name">
+            <h1 v-on:click="randomWord">{{ package }}</h1>
+            <p>Click the name to generate another!</p>
+        </div>
+
+        <!-- Results panel -->
+        <div id="result-container">
+            <!-- Checkmark or 'X' -->
+            <div class="column left">
+                <div class="center">
+                    <i v-if="exists" class="fas fa-check"></i>
+                    <i v-else class="fas fa-times"></i>
+                </div>
+            </div>
+
+            <!-- Text and links -->
+            <div class="column right">
+                <div v-if="exists">
+                    <h3>This NPM package exists!</h3>
+                    <p>Check it out <a v-bind:href="link" target="_blank">here</a>!</p>
+                </div>
+                <div v-else>
+                    <h3>This NPM package doesn't exist...</h3>
+                    <p>... YET! How about you <a href="https://github.com/new" target="_blank">fix that</a>?</p>
+                </div>
+            </div>
+        </div>
     </div>
+
     <script src="js/utility.js"></script>
 </body>
 </html>

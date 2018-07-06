@@ -4,6 +4,8 @@ body {
     font-family: 'PT Sans', sans-serif;
 }
 
+/* Icon Tray */
+
 #icon-tray {
     position: relative;
 }
@@ -20,15 +22,18 @@ body {
 }
 
 #icon-tray #search {
-    right: 85px; 
+    right: 85px;
 }
+
+/* Centering stuff */
 
 .flex-center {
     position: fixed;
-    top: 50%;
+    top: 43%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 450%;
+
+    text-align: center;
 }
 
 .flex-center h1 {
@@ -37,7 +42,7 @@ body {
 
 .flex-center p {
     text-align: center;
-    font-size: 50%;
+    /*font-size: 50%;*/
 }
 
 .noselect {
@@ -48,4 +53,85 @@ body {
           -ms-user-select: none; /* Internet Explorer/Edge */
               user-select: none; /* Non-prefixed version, currently
                                     supported by Chrome and Opera */
-  }
+}
+
+/* Columns */
+
+.column {
+    float: left;
+    height: 100%;
+
+    text-align: center;
+}
+
+.left {
+    width: 10em;
+}
+
+.right {
+    width: 29em;
+}
+
+.column .center {
+    position: relative;
+    top: 50%;
+
+    transform: translate(0%, -40%);
+}
+
+/* Generated name */
+
+#generated-name h1 {
+    line-height: normal;
+    font-size: 8em;
+
+    margin-bottom: 0;
+}
+
+#generated-name > p {
+    font-size: 22px;
+    color: #999;
+
+    margin-top: 0px;
+}
+
+/* Results panel */
+
+#result-container {
+    height: 10em;
+    width: 40em;
+
+    background-color: #deebff;
+    color: black;
+
+    margin: 0 auto;
+    margin-top: 50px;
+
+    border-radius: 10px;
+}
+
+#result-container > .left {
+    border-right: 1px solid #aaa;
+}
+
+#result-container .fas {
+    font-size: 3em;
+    text-shadow: 0px 0px 10px #999;
+}
+
+.fa-check {
+    color: green;
+}
+
+.fa-times {
+    color: darkred;
+}
+
+#result-container h3 {
+    font-size: 28px;
+    color: #333;
+}
+
+#result-container p {
+    font-size: 20px;
+}
