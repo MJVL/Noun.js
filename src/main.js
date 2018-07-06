@@ -15,7 +15,7 @@ var generator = new Vue({
             // TODO: Allow the user to type in their own package name.
             this.packageStem = NOUNS[Math.floor(Math.random() * NOUNS.length)];
 
-            // Add ".js" to the end for display
+            // Capitalize first character and add ".js" to the end for display
             this.package = this.packageStem.charAt(0).toUpperCase() + this.packageStem.substr(1) + EXTENSION;
 
             this.firstClick = false;
