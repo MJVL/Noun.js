@@ -9,16 +9,16 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <!-- Icons -->
-	<link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
-	<link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+	<link rel="shortcut icon" href="src/assets/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="src/assets/favicon.ico" type="image/x-icon">
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="src/static/css/styles.css">
     <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
 
     <!-- Scripts -->
-    <script src="js/constants.js"></script>
+    <script src="src/data/constants.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
@@ -26,8 +26,8 @@
 </head>
 <body class="noselect">
     <div id="icon-tray">
-        <img src="assets/search.png" id="search" v-on:click="searchForName"/>
-        <img src="assets/github.png" id="repository" v-on:click="travelToRepository"/>
+        <img src="src/assets/search.png" id="search" v-on:click="searchForName"/>
+        <img src="src/assets/github.png" id="repository" v-on:click="travelToRepository"/>
     </div>
     <div id="main" class="flex-center">
         <!-- Display of the randomized name -->
@@ -60,6 +60,6 @@
         </div>
     </div>
 
-    <script src="js/utility.js"></script>
+    <script src="src/main.js"></script>
 </body>
 </html>
