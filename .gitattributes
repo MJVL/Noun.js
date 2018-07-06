@@ -1,1 +1,4 @@
+# Mark .js files as .vue files for linguist analysis.
 *.js linguist-language=Vue
+# While these files are technically .js files, all of main.js is written in Vue so it should be marked as such.
+# constants.js is purely JavaScript, but is small enough so that the incorrect flagging won't matter.
