@@ -1,6 +1,6 @@
 # Noun.js
 
-Website poking fun at dull JavaSCript library/framework naming conventions.
+Website poking fun at dull JavaScript library/framework naming conventions.
 
 ## Asset Sources
 
