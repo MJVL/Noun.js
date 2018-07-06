@@ -7,23 +7,23 @@
     <meta name="author" content="Michael Van Leeuwen">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
-	<link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+	<link rel="shortcut icon" href="src/assets/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="src/assets/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/styles.css">
     <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
-    <script src="js/constants.js"></script>
+    <script src="src/data/constants.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <title>Noun.js</title>
 </head>
 <body class="noselect">
     <div id="icon-tray">
-        <img src="assets/search.png" id="search" v-on:click="searchForName"/>
-        <img src="assets/github.png" id="repository" v-on:click="travelToRepository"/>
+        <img src="src/assets/search.png" id="search" v-on:click="searchForName"/>
+        <img src="src/assets/github.png" id="repository" v-on:click="travelToRepository"/>
     </div>
     <div id="generated-name" class="flex-center">
         <h1 v-on:click="randomWord">{{ package }}</h1>
         <p><i>{{ result }}</i></p>
     </div>
-    <script src="js/utility.js"></script>
+    <script src="src/main.js"></script>
 </body>
 </html>
