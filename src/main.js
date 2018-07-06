@@ -14,6 +14,10 @@ var generator = new Vue({
         checkExistence: function() {
             //this.exists =
             this.result = 'This package does' + ((this.exists) ? '' : "n't") + ' exist.'; 
+        },
+        createRepository: function() {
+            let ghWindow = window.open('https://github.com/new');
+            ghWindow.getElementById('repository_name').value = this.package;
         }
     }
 })
