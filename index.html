@@ -51,7 +51,11 @@
 
             <!-- Text and links -->
             <div class="column right">
-                <div v-if="exists">
+                <div v-if="noun">
+                    <h3>Of course this exists! You're on it right now!</h3>
+                    <p>View the source code <a v-bind:href="link" target="_blank">here</a>!</p>
+                </div>
+                <div v-else-if="exists">
                     <h3>This NPM package exists!</h3>
                     <p>Check it out <a v-bind:href="link" target="_blank">here</a>!</p>
                 </div>

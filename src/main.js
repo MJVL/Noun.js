@@ -3,11 +3,13 @@ var generator = new Vue({
     data: {
         package: DEFAULT,
         packageStem: "",
-        exists: false,
-        link: ""
+        exists: true,
+        noun: true,
+        link: "https://github.com/MJVL/Noun.js"
     },
     methods: {
         randomWord: function() {
+            noun = false;
             // Pick a package name
             // TODO: Allow the user to type in their own package name.
             this.packageStem = NOUNS[Math.floor(Math.random() * NOUNS.length)];
