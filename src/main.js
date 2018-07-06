@@ -5,7 +5,8 @@ var generator = new Vue({
         packageStem: "",
         exists: true,
         noun: true,
-        link: "https://github.com/MJVL/Noun.js"
+        link: "https://github.com/MJVL/Noun.js",
+        firstClick: true
     },
     methods: {
         randomWord: function() {
@@ -17,6 +18,7 @@ var generator = new Vue({
             // Add ".js" to the end for display
             this.package = this.packageStem.charAt(0).toUpperCase() + this.packageStem.substr(1) + EXTENSION;
 
+            this.firstClick = false;
             this.checkExistence();
         },
         checkExistence: function() {

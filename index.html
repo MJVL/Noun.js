@@ -36,7 +36,8 @@
         <!-- Display of the randomized name -->
         <div id="generated-name">
             <h1 v-on:click="randomWord">{{ package }}</h1>
-            <p>Click the name to generate another!</p>
+            <p v-if="firstClick">Click the name to generate another!</p>
+            <p v-else>&nbsp;</p>
         </div>
 
         <!-- Results panel -->
