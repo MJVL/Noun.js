@@ -21,7 +21,7 @@ var generator = new Vue({
         },
         checkExistence: function() {
             jQuery.ajax({
-                url: 'http://npmsearch.com/query?q=' + this.packageStem + '&fields=name',
+                url: 'https://npmsearch.com/query?q=' + this.packageStem + '&fields=name',
                 success: function (result) {
                     // TODO: Little red balloon on error instead of using alert()
                     if (result.isOk == false) alert(result.message);
