@@ -143,7 +143,7 @@ body {
     animation-iteration-count: 1;
     transform-origin: 50% 50%;
     animation-fill-mode:forwards; /*when the spec is finished*/
-    -webkit-animation: animationFrames ease 2s;
+    -webkit-animation: animationFrames ease 1.5s;
     -webkit-animation-iteration-count: 1;
     -webkit-transform-origin: 50% 50%;
     -webkit-animation-fill-mode:forwards; /*Chrome 16+, Safari 4+*/ 
