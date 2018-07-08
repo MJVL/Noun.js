@@ -5,7 +5,7 @@ var generator = new Vue({
         packageStem: "",
         exists: true,
         noun: true,
-        link: "https://github.com/MJVL/Noun.js",
+        link: 'https://github.com/MJVL/Noun.js',
         firstClick: true
     },
     methods: {
@@ -33,8 +33,8 @@ var generator = new Vue({
 
                     // JS is dumb and I can't access the regular variables from inside a loop...
                     // so use these temp ones.
-                    var found = false;
-                    var pkgLink = "";
+                    let found = false;
+                    let pkgLink = '';
 
                     // Check each "hit" from npmsearch.com's api for an exact match
                     packages.forEach(function(p) {
