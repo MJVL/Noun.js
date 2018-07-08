@@ -1,4 +1,3 @@
-
 "use strict";
 window.onload = function() {
     setTimeout(start, 200);
@@ -102,28 +101,10 @@ function start() {
         }
     }
 
-    function createShootingStar() {
-        var shootingStar = particle.create(randomRange(width / 2, width), randomRange(0, height / 2), 0, 0);
-        shootingStar.setSpeed(randomRange(shootingStarSpeed.min, shootingStarSpeed.max));
-        shootingStar.setHeading(degreesToRads(starsAngle));
-        shootingStar.radius = shootingStarRadius;
-        shootingStar.opacity = 0;
-        shootingStar.trailLengthDelta = 0;
-        shootingStar.isSpawning = true;
-        shootingStar.isDying = false;
-        shootingStars.push(shootingStar);
-    }
-
-    function killShootingStar(shootingStar) {
-        setTimeout(function() {
-            shootingStar.isDying = true;
-        }, shootingStarLifeTime);
-    }
-
     function update() {
         if (!paused) {
             context.clearRect(0, 0, width, height);
-            context.fillStyle = "#282a3a";
+            context.fillStyle = "#243146";
             context.fillRect(0, 0, width, height);
             context.fill();
 
@@ -144,37 +125,6 @@ function start() {
                     star.y = height;
                 }
             }
-
-            for (i = 0; i < shootingStars.length; i += 1) {
-                var shootingStar = shootingStars[i];
-                if (shootingStar.isSpawning) {
-                    shootingStar.opacity += shootingStarOpacityDelta;
-                    if (shootingStar.opacity >= 1.0) {
-                        shootingStar.isSpawning = false;
-                        killShootingStar(shootingStar);
-                    }
-                }
-                if (shootingStar.isDying) {
-                    shootingStar.opacity -= shootingStarOpacityDelta;
-                    if (shootingStar.opacity <= 0.0) {
-                        shootingStar.isDying = false;
-                        shootingStar.isDead = true;
-                    }
-                }
-                shootingStar.trailLengthDelta += trailLengthDelta;
-
-                shootingStar.update();
-                if (shootingStar.opacity > 0.0) {
-                    drawShootingStar(shootingStar);
-                }
-            }
-
-            //Delete dead shooting shootingStars
-            for (i = shootingStars.length -1; i >= 0 ; i--){
-                if (shootingStars[i].isDead){
-                    shootingStars.splice(i, 1);
-                }
-            }
         }
         requestAnimationFrame(update);
     }
@@ -185,7 +135,7 @@ function start() {
         context.arc(star.x, star.y, star.radius, 0, Math.PI * 2, false);
         context.fill();
     }
-    
+
     //Run
     update();
 
