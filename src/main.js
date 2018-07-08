@@ -1,7 +1,3 @@
-particlesJS.load('particles-js', 'src/data/particles-config.json', function() {
-    console.log('callback - particles.js config loaded');
-});
-
 var generator = new Vue({
     el: '#main',
     data: {

@@ -4,6 +4,12 @@ body {
     font-family: 'PT Sans', sans-serif;
 }
 
+canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
 /* Icon Tray */
 
 #icon-tray {

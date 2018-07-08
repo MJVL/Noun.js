@@ -25,50 +25,51 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="src/components/components.js"></script>
+    <script src="src/static/js/starfield.js"></script>
 
     <title>Noun.js</title>
 </head>
 <body class="noselect">
-    <div id="particles-js">
-        <div id="icon-tray" class="fade-in">
-            <github-button></github-button>
-        </div>
-        <div id="main" class="flex-center">
-            <!-- Display of the randomized name -->
-            <div id="generated-name" class="fade-in">
-                <h1 v-on:click="randomWord">{{ package }}</h1>
-                <p v-if="firstClick">Click the big text to generate the next name!</p>
-                <p v-else>&nbsp;</p>
+    <canvas id="canvas" width="100%" height="100%"></canvas>
+            <div id="icon-tray" class="fade-in">
+                <github-button></github-button>
             </div>
-
-            <!-- Results panel -->
-            <div id="result-container" class="fade-in">
-                <!-- Checkmark or 'X' -->
-                <div class="column left">
-                    <div class="center">
-                        <i v-if="exists" class="fas fa-check"></i>
-                        <i v-else class="fas fa-times"></i>
-                    </div>
+            <div id="main" class="flex-center">
+                <!-- Display of the randomized name -->
+                <div id="generated-name" class="fade-in">
+                    <h1 v-on:click="randomWord">{{ package }}</h1>
+                    <p v-if="firstClick">Click the big text to generate the next name!</p>
+                    <p v-else>&nbsp;</p>
                 </div>
 
-                <!-- Text and links -->
-                <div class="column right">
-                    <div v-if="noun">
-                        <h3 style="margin-top: 15px;">Of course this exists,<br/>you're on it right now!</h3>
-                        <p style="margin-top: -10px;">View the source code <a v-bind:href="link" target="_blank">here</a>!</p>
+                <!-- Results panel -->
+                <div id="result-container" class="fade-in">
+                    <!-- Checkmark or 'X' -->
+                    <div class="column left">
+                        <div class="center">
+                            <i v-if="exists" class="fas fa-check"></i>
+                            <i v-else class="fas fa-times"></i>
+                        </div>
                     </div>
-                    <div v-else-if="exists">
-                        <h3>This NPM package exists!</h3>
-                        <p>Check it out <a v-bind:href="link" target="_blank">here</a>!</p>
-                    </div>
-                    <div v-else>
-                        <h3>This NPM package doesn't exist...</h3>
-                        <p>... YET! How about you <a href="https://github.com/new" target="_blank">fix that</a>?</p>
+
+                    <!-- Text and links -->
+                    <div class="column right">
+                        <div v-if="noun">
+                            <h3 style="margin-top: 15px;">Of course this exists,<br/>you're on it right now!</h3>
+                            <p style="margin-top: -10px;">View the source code <a v-bind:href="link" target="_blank">here</a>!</p>
+                        </div>
+                        <div v-else-if="exists">
+                            <h3>This NPM package exists!</h3>
+                            <p>Check it out <a v-bind:href="link" target="_blank">here</a>!</p>
+                        </div>
+                        <div v-else>
+                            <h3>This NPM package doesn't exist...</h3>
+                            <p>... YET! How about you <a href="https://github.com/new" target="_blank">fix that</a>?</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <script src="src/main.js"></script>
-    </div>
+            <script src="src/main.js"></script>
+    </canvas>
 </body>
 </html>
