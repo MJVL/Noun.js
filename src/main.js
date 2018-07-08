@@ -60,12 +60,13 @@ var generator = new Vue({
     }
 });
 
-var tray = new Vue({
-    el: '#icon-tray',
+Vue.component('github-button', {
+    template: '<img src="src/assets/github.png" id="repository" v-on:click="travelToRepository"/>',
     methods: {
-        // FIXME: This is a private repo. Either make it public or remove this.
         travelToRepository: function() {
             window.open('https://github.com/MJVL/Noun.js');
         }
     }
-});
+})
+
+new Vue({ el: '#icon-tray' })
