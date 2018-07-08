@@ -185,57 +185,9 @@ function start() {
         context.arc(star.x, star.y, star.radius, 0, Math.PI * 2, false);
         context.fill();
     }
-
-    function drawShootingStar(p) {
-        var x = p.x,
-            y = p.y,
-            currentTrailLength = (maxTrailLength * p.trailLengthDelta),
-            pos = lineToAngle(x, y, -currentTrailLength, p.getHeading());
-
-        context.fillStyle = "rgba(255, 255, 255, " + p.opacity + ")";
-        // context.beginPath();
-        // context.arc(x, y, p.radius, 0, Math.PI * 2, false);
-        // context.fill();
-        var starLength = 5;
-        context.beginPath();
-        context.moveTo(x - 1, y + 1);
-
-        context.lineTo(x, y + starLength);
-        context.lineTo(x + 1, y + 1);
-
-        context.lineTo(x + starLength, y);
-        context.lineTo(x + 1, y - 1);
-
-        context.lineTo(x, y + 1);
-        context.lineTo(x, y - starLength);
-
-        context.lineTo(x - 1, y - 1);
-        context.lineTo(x - starLength, y);
-
-        context.lineTo(x - 1, y + 1);
-        context.lineTo(x - starLength, y);
-
-        context.closePath();
-        context.fill();
-
-        //trail
-        context.fillStyle = "rgba(255, 221, 157, " + p.opacity + ")";
-        context.beginPath();
-        context.moveTo(x - 1, y - 1);
-        context.lineTo(pos.x, pos.y);
-        context.lineTo(x + 1, y + 1);
-        context.closePath();
-        context.fill();
-    }
-
+    
     //Run
     update();
-
-    //Shooting stars
-    setInterval(function() {
-        if (paused) return;
-        createShootingStar();
-    }, shootingStarEmittingInterval);
 
     window.onfocus = function () {
       paused = false;
