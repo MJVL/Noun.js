@@ -2,10 +2,10 @@ body {
     background-color: #243146;
     color: #FFFFFF;
     font-family: 'PT Sans', sans-serif;
+    overflow: hidden;
 }
 
 canvas {
-    display: block;
     width: 100%;
     height: 100%;
 }
@@ -13,7 +13,9 @@ canvas {
 /* Icon Tray */
 
 #icon-tray {
-    position: relative;
+    position: fixed;
+    top: 0;
+    right: 0;
 }
 
 #icon-tray img {
@@ -25,10 +27,6 @@ canvas {
 
 #icon-tray #repository {
     right: 0px;
-}
-
-#icon-tray #search {
-    right: 85px;
 }
 
 /* Centering stuff */
