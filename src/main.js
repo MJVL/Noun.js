@@ -11,9 +11,11 @@ var generator = new Vue({
     methods: {
         randomWord: function() {
             this.noun = false;
-            // Pick a package name
+            // Pick a packageStem that won't result in a div overflow
             // TODO: Allow the user to type in their own package name.
-            this.packageStem = NOUNS[Math.floor(Math.random() * NOUNS.length)];
+            do {
+                this.packageStem = NOUNS[Math.floor(Math.random() * NOUNS.length)];
+            } while (this.checkOverflow());
 
             // Capitalize first character and add ".js" to the end for display
             this.package = this.packageStem.charAt(0).toUpperCase() + this.packageStem.substr(1) + EXTENSION;
@@ -51,6 +53,9 @@ var generator = new Vue({
                     generator.link = pkgLink;
                 }
             });
+        },
+        checkOverflow: function() {
+            return this.packageStem.indexOf('-') !== -1 && this.packageStem.length >= 10;
         }
     }
 });
