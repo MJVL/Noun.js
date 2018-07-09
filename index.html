@@ -65,7 +65,7 @@
         </div>
 
         <div id="package-card">
-          <div v-if="exists">
+          <div v-if="cardReady">
             <a class="card-title" v-bind:href="card.link">{{ card.title }}</a>
             <p class="card-slug">{{ card.slug }}</p>
             <p class="card-details">{{ card.details }}</p>

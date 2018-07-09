@@ -12,6 +12,7 @@ var generator = new Vue({
           slug: "",
           details: ""
         },
+        cardReady: false,
         firstClick: true
     },
     methods: {
@@ -27,6 +28,8 @@ var generator = new Vue({
             this.firstClick = false;
 
             this.exists = false;
+            this.cardReady = false;
+
             this.checkExistence();
         },
         checkExistence: function() {
@@ -120,9 +123,11 @@ function cbfunc(json) {     //the callback function
         console.log(currentVerInfo);
 
         generator.card.details = currentVerInfo.version;
+        generator.cardReady = true;
 
    } else {
         //alert('Error: nothing found');
+        generator.cardReady = false;
         return false;
    }
 }
