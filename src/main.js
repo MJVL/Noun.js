@@ -92,7 +92,7 @@ var tray = new Vue({
 // https://stackoverflow.com/questions/20510336/get-data-json-format-from-another-domain-without-jsonp
 
 function getJSON(url) {  //quick and dirty
-  var script = document.createElement('script');
+  let script = document.createElement('script');
   script.setAttribute('src', url);
   script.setAttribute('type', 'text/javascript');
   document.getElementsByTagName('head')[0].appendChild(script);
@@ -100,17 +100,17 @@ function getJSON(url) {  //quick and dirty
 
 function cbfunc(json) {     //the callback function
    if (json.query.count) {
-        var data = json.query.results.json;
+        let data = json.query.results.json;
 
         // Update generator card thing
         generator.card.title = data._id;
         generator.card.link = generator.link;
         generator.card.slug = data.description;
 
-        var currentVer = data['dist-tags'].latest;
-        var currentVerInfo = null;
+        let currentVer = data['dist-tags'].latest;
+        let currentVerInfo = null;
 
-        for (var version in data.versions) {
+        for (let version in data.versions) {
             if (data.versions.hasOwnProperty(version)) {
                 console.log(version);
                 if (data.versions[version].version == currentVer) {
@@ -133,7 +133,7 @@ function cbfunc(json) {     //the callback function
 }
 
 function fetch(url) {
-   var yql="select * " +
+   let yql="select * " +
            " from json" +
            " where url='" + url + "';";
    yql="http://query.yahooapis.com/v1/public/yql?q=" +
