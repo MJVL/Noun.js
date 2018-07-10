@@ -112,15 +112,11 @@ function cbfunc(json) {     //the callback function
 
         for (let version in data.versions) {
             if (data.versions.hasOwnProperty(version)) {
-                console.log(version);
                 if (data.versions[version].version == currentVer) {
                     currentVerInfo = data.versions[version];
                 }
             }
         }
-
-        console.log('Current version info: ');
-        console.log(currentVerInfo);
 
         generator.card.details = currentVerInfo.version;
         generator.cardReady = true;
