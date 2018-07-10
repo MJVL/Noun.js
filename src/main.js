@@ -2,15 +2,15 @@ var generator = new Vue({
     el: '#main',
     data: {
         package: DEFAULT,
-        packageStem: "",
+        packageStem: '',
         exists: true,
         noun: true,
-        link: "https://github.com/MJVL/Noun.js",
+        link: 'https://github.com/MJVL/Noun.js',
         card: {
-          title: "",
-          link: "",
-          slug: "",
-          details: ""
+          title: '',
+          link: '',
+          slug: '',
+          details: ''
         },
         cardReady: false,
         firstClick: true
