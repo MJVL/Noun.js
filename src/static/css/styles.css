@@ -139,3 +139,54 @@ canvas {
 #result-container p {
     font-size: 20px;
 }
+
+/* Package card */
+
+#package-card {
+  width: 20em;
+  height: 8em;
+
+  text-align: left;
+
+  background-color: #deebff;
+
+  border-radius: 10px;
+
+  margin: 0 auto;
+  margin-top: 30px;
+
+  padding-top: 35px;
+  padding-bottom: 35px;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+#package-card * {
+  text-align: left;
+}
+
+.card-title {
+  color: #CB3837;
+  font-weight: bold;
+  font-size: 22px;
+  text-decoration: none;
+}
+
+.card-slug {
+  color: #444;
+  font-size: 19px;
+
+  margin-top: 8px;
+}
+
+.card-details {
+  color: #666;
+  font-size: 15px;
+}
+
+#package-card .big {
+    font-size: 36px;
+    color: #aaa;
+
+    text-align: center;
+}
