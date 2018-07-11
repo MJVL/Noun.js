@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="src/static/css/animations.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
 
     <!-- Scripts -->
     <script src="src/data/constants.js"></script>
@@ -31,19 +32,19 @@
 </head>
 <body scroll="no" class="noselect">
     <canvas id="canvas" class="fade-in"></canvas>
-        <div id="icon-tray">
+        <div id="icon-tray" class="fade-in">
             <github-button></github-button>
         </div>
         <div id="main" class="flex-center">
             <!-- Display of the randomized name -->
-            <div id="generated-name">
+            <div id="generated-name" class="fade-in">
                 <h1 v-on:click="randomWord">{{ package }}</h1>
                 <p v-if="firstClick">Click the big text to generate the next name!</p>
                 <p v-else>&nbsp;</p>
             </div>
 
             <!-- Results panel -->
-            <div id="result-container">
+            <div id="result-container" class="fade-in">
                 <!-- Checkmark or 'X' -->
                 <div class="column left">
                     <div class="center">
@@ -69,7 +70,7 @@
                 </div>
             </div>
 
-            <div id="package-card">
+            <div id="package-card" class="fade-in">
                 <div v-if="cardReady">
                     <a class="card-title" v-bind:href="card.link">{{ card.title }}</a>
                     <p class="card-slug">{{ card.slug }}</p>
