@@ -18,9 +18,11 @@ var generator = new Vue({
     methods: {
         randomWord: function() {
             this.noun = false;
-            // Pick a package name
+            // Pick a packageStem that won't result in a div overflow
             // TODO: Allow the user to type in their own package name.
-            this.packageStem = NOUNS[Math.floor(Math.random() * NOUNS.length)];
+            do {
+                this.packageStem = NOUNS[Math.floor(Math.random() * NOUNS.length)];
+            } while (this.checkOverflow());
 
             // Capitalize first character and add ".js" to the end for display
             this.package = this.packageStem.charAt(0).toUpperCase() + this.packageStem.substr(1) + EXTENSION;
@@ -44,8 +46,8 @@ var generator = new Vue({
 
                     // JS is dumb and I can't access the regular variables from inside a loop...
                     // so use these temp ones.
-                    var found = false;
-                    var pkgLink = "";
+                    let found = false;
+                    let pkgLink = '';
 
                     // Check each "hit" from npmsearch.com's api for an exact match
                     packages.forEach(function(p) {
@@ -72,16 +74,9 @@ var generator = new Vue({
             // Get the info for the card
             // See end of file for details on why use fetch() and why JS is dumb.
             fetch('https://registry.npmjs.org/' + generator.packageStem);
-        }
-    }
-});
-
-var tray = new Vue({
-    el: '#icon-tray',
-    methods: {
-        // FIXME: This is a private repo. Either make it public or remove this.
-        travelToRepository: function() {
-            window.open('https://github.com/MJVL/Noun.js');
+        },
+        checkOverflow: function() {
+            return this.packageStem.indexOf('-') !== -1 && this.packageStem.length >= 10;
         }
     }
 });
@@ -138,3 +133,5 @@ function fetch(url) {
        "&callback=cbfunc";
    getJSON(yql);
 }
+
+new Vue({ el: '#icon-tray' });

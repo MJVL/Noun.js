@@ -15,17 +15,22 @@
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="src/static/css/styles.css">
+    <link rel="stylesheet" href="src/static/css/animations.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
 
     <!-- Scripts -->
     <script src="src/data/constants.js"></script>
+    <script src="src/static/js/starfield.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="src/components/components.js"></script>
 
     <title>Noun.js</title>
 </head>
-<body class="noselect">
+<body scroll="no" class="noselect">
+    <canvas id="canvas" class="fade-in"></canvas>
     <div id="icon-tray">
         <img src="src/assets/github.png" id="repository" v-on:click="travelToRepository"/>
     </div>
@@ -76,5 +81,6 @@
         </div>
     </div>
     <script src="src/main.js"></script>
+    </canvas>
 </body>
 </html>
