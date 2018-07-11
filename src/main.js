@@ -127,7 +127,7 @@ function fetch(url) {
    let yql="select * " +
            " from json" +
            " where url='" + url + "';";
-   yql="http://query.yahooapis.com/v1/public/yql?q=" +
+   yql="https://query.yahooapis.com/v1/public/yql?q=" +
        encodeURIComponent(yql) +
        "&format=json" +
        "&callback=cbfunc";
