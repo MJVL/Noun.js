@@ -31,55 +31,55 @@
 </head>
 <body scroll="no" class="noselect">
     <canvas id="canvas" class="fade-in"></canvas>
-    <div id="icon-tray">
-        <img src="src/assets/github.png" id="repository" v-on:click="travelToRepository"/>
-    </div>
-    <div id="main" class="flex-center">
-        <!-- Display of the randomized name -->
-        <div id="generated-name">
-            <h1 v-on:click="randomWord">{{ package }}</h1>
-            <p v-if="firstClick">Click the big text to generate the next name!</p>
-            <p v-else>&nbsp;</p>
+        <div id="icon-tray">
+            <img src="src/assets/github.png" id="repository" v-on:click="travelToRepository"/>
         </div>
+        <div id="main" class="flex-center">
+            <!-- Display of the randomized name -->
+            <div id="generated-name">
+                <h1 v-on:click="randomWord">{{ package }}</h1>
+                <p v-if="firstClick">Click the big text to generate the next name!</p>
+                <p v-else>&nbsp;</p>
+            </div>
 
-        <!-- Results panel -->
-        <div id="result-container">
-            <!-- Checkmark or 'X' -->
-            <div class="column left">
-                <div class="center">
-                    <i v-if="exists" class="fas fa-check"></i>
-                    <i v-else class="fas fa-times"></i>
+            <!-- Results panel -->
+            <div id="result-container">
+                <!-- Checkmark or 'X' -->
+                <div class="column left">
+                    <div class="center">
+                        <i v-if="exists" class="fas fa-check"></i>
+                        <i v-else class="fas fa-times"></i>
+                    </div>
+                </div>
+
+                <!-- Text and links -->
+                <div class="column right">
+                    <div v-if="noun">
+                        <h3 style="margin-top: 15px;">Of course this exists,<br/>you're on it right now!</h3>
+                        <p style="margin-top: -10px;">View the source code <a v-bind:href="link" target="_blank">here</a>!</p>
+                    </div>
+                    <div v-else-if="exists">
+                        <h3>This NPM package exists!</h3>
+                        <p>Check it out <a v-bind:href="link" target="_blank">here</a>!</p>
+                    </div>
+                    <div v-else>
+                        <h3>This NPM package doesn't exist...</h3>
+                        <p>... YET! How about you <a href="https://github.com/new" target="_blank">fix that</a>?</p>
+                    </div>
                 </div>
             </div>
 
-            <!-- Text and links -->
-            <div class="column right">
-                <div v-if="noun">
-                    <h3 style="margin-top: 15px;">Of course this exists,<br/>you're on it right now!</h3>
-                    <p style="margin-top: -10px;">View the source code <a v-bind:href="link" target="_blank">here</a>!</p>
-                </div>
-                <div v-else-if="exists">
-                    <h3>This NPM package exists!</h3>
-                    <p>Check it out <a v-bind:href="link" target="_blank">here</a>!</p>
+            <div id="package-card">
+                <div v-if="cardReady">
+                    <a class="card-title" v-bind:href="card.link">{{ card.title }}</a>
+                    <p class="card-slug">{{ card.slug }}</p>
+                    <p class="card-details">{{ card.details }}</p>
                 </div>
                 <div v-else>
-                    <h3>This NPM package doesn't exist...</h3>
-                    <p>... YET! How about you <a href="https://github.com/new" target="_blank">fix that</a>?</p>
+                    <p class="center big">?</p>
                 </div>
             </div>
         </div>
-
-        <div id="package-card">
-          <div v-if="cardReady">
-            <a class="card-title" v-bind:href="card.link">{{ card.title }}</a>
-            <p class="card-slug">{{ card.slug }}</p>
-            <p class="card-details">{{ card.details }}</p>
-          </div>
-          <div v-else>
-            <p class="center big">?</p>
-          </div>
-        </div>
-    </div>
     <script src="src/main.js"></script>
     </canvas>
 </body>
