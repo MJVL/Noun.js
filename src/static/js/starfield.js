@@ -21,7 +21,7 @@ function start() {
     }
 
     //Particle
-    var particle = {
+    let particle = {
         x: 0,
         y: 0,
         vx: 0,
@@ -42,7 +42,7 @@ function start() {
         },
 
         setSpeed: function(speed) {
-            var heading = this.getHeading();
+            let heading = this.getHeading();
             this.vx = Math.cos(heading) * speed;
             this.vy = Math.sin(heading) * speed;
         },
@@ -52,7 +52,7 @@ function start() {
         },
 
         setHeading: function(heading) {
-            var speed = this.getSpeed();
+            let speed = this.getSpeed();
             this.vx = Math.cos(heading) * speed;
             this.vy = Math.sin(heading) * speed;
         },
@@ -64,36 +64,26 @@ function start() {
     };
 
     //Canvas and settings
-    var canvas = document.getElementById("canvas"),
+    let canvas = document.getElementById("canvas"),
         context = canvas.getContext("2d"),
         width = canvas.width = window.innerWidth,
         height = canvas.height = window.innerHeight,
         stars = [],
-        shootingStars = [],
+
         layers = [
             { speed: 0.015, scale: 0.2, count: 320 },
             { speed: 0.03, scale: 0.5, count: 50 },
             { speed: 0.05, scale: 0.75, count: 30 }
         ],
         starsAngle = 145,
-        shootingStarSpeed = {
-            min: 15,
-            max: 20
-        },
-        shootingStarOpacityDelta = 0.01,
-        trailLengthDelta = 0.01,
-        shootingStarEmittingInterval = 2000,
-        shootingStarLifeTime = 500,
-        maxTrailLength = 300,
         starBaseRadius = 2,
-        shootingStarRadius = 3,
         paused = false;
 
     //Create all stars
-    for (var j = 0; j < layers.length; j += 1) {
-        var layer = layers[j];
-        for (var i = 0; i < layer.count; i += 1) {
-            var star = particle.create(randomRange(0, width), randomRange(0, height), 0, 0);
+    for (let j = 0; j < layers.length; j += 1) {
+        let layer = layers[j];
+        for (let i = 0; i < layer.count; i += 1) {
+            let star = particle.create(randomRange(0, width), randomRange(0, height), 0, 0);
             star.radius = starBaseRadius * layer.scale;
             star.setSpeed(layer.speed);
             star.setHeading(degreesToRads(starsAngle));
@@ -108,8 +98,8 @@ function start() {
             context.fillRect(0, 0, width, height);
             context.fill();
 
-            for (var i = 0; i < stars.length; i += 1) {
-                var star = stars[i];
+            for (let i = 0; i < stars.length; i += 1) {
+                let star = stars[i];
                 star.update();
                 drawStar(star);
                 if (star.x > width) {
