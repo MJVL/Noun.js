@@ -36,7 +36,7 @@ var generator = new Vue({
                 url: 'https://npmsearch.com/query?q=' + this.packageStem + '&fields=name',
                 success: function (result) {
                     // TODO: Little red balloon on error instead of using alert()
-                    if (result.isOk == false) alert(result.message);
+                    if (result.isOk === false) alert(result.message);
 
                     // Parse the result into an object
                     let packages = JSON.parse(result).results;
@@ -48,8 +48,8 @@ var generator = new Vue({
 
                     // Check each "hit" from npmsearch.com's api for an exact match
                     packages.forEach(function(p) {
-                        if (p.name[0].toLowerCase() == generator.packageStem.toLowerCase()
-                            || p.name[0].toLowerCase() == generator.package.toLowerCase()) {
+                        if (p.name[0].toLowerCase() === generator.packageStem.toLowerCase()
+                            || p.name[0].toLowerCase() === generator.package.toLowerCase()) {
                             found = true;
 
                             // All NPM packages have this homepage link format
@@ -61,7 +61,7 @@ var generator = new Vue({
                     generator.exists = found;
                     generator.link = pkgLink;
 
-                    if (generator.exists == true) {
+                    if (generator.exists === true) {
                         generator.getCardInfo();
                     }
                 }
@@ -104,7 +104,7 @@ function cbfunc(json) {     //the callback function
 
         for (let version in data.versions) {
             if (data.versions.hasOwnProperty(version)) {
-                if (data.versions[version].version == currentVer) {
+                if (data.versions[version].version === currentVer) {
                     currentVerInfo = data.versions[version];
                 }
             }
