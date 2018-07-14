@@ -5,11 +5,8 @@ window.onload = function() {
 
 function start() {
 
-    //Helpers
     function lineToAngle(x1, y1, length, radians) {
-        let x2 = x1 + length * Math.cos(radians),
-            y2 = y1 + length * Math.sin(radians);
-        return { x: x2, y: y2 };
+        return { x: x1 + length * Math.cos(radians), y: y1 + length * Math.sin(radians) };
     }
 
     function randomRange(min, max) {
@@ -20,7 +17,6 @@ function start() {
         return degrees / 180 * Math.PI;
     }
 
-    //Particle
     let particle = {
         x: 0,
         y: 0,
@@ -62,9 +58,9 @@ function start() {
             this.y += this.vy;
         }
     };
-    //Canvas and settings
-    let canvas = document.getElementById("canvas"),
-        context = canvas.getContext("2d"),
+    
+    let canvas = document.getElementById('canvas'),
+        context = canvas.getContext('2d'),
         width = canvas.width = window.innerWidth,
         height = canvas.height = window.innerHeight,
         stars = [],
@@ -77,10 +73,10 @@ function start() {
         starBaseRadius = 2,
         paused = false;
 
-    //Create all stars
-    for (let j = 0; j < layers.length; j += 1) {
-        let layer = layers[j];
-        for (let i = 0; i < layer.count; i += 1) {
+    
+    for (let i = 0; i < layers.length; i++) {
+        let layer = layers[i];
+        for (let j = 0; j < layer.count; j++) {
             let star = particle.create(randomRange(0, width), randomRange(0, height), 0, 0);
             star.radius = starBaseRadius * layer.scale;
             star.setSpeed(layer.speed);
@@ -95,7 +91,7 @@ function start() {
             context.fillStyle = "#243146";
             context.fillRect(0, 0, width, height);
             context.fill();
-            for (let i = 0; i < stars.length; i += 1) {
+            for (let i = 0; i < stars.length; i++) {
                 let star = stars[i];
                 star.update();
                 drawStar(star);
@@ -107,13 +103,13 @@ function start() {
     }
 
     function drawStar(star) {
-        context.fillStyle = "rgb(255, 221, 157)";
+        context.fillStyle = '#ffdd9d';
         context.beginPath();
         context.arc(star.x, star.y, star.radius, 0, Math.PI * 2, false);
         context.fill();
     }
 
-    //Run
+   
     update();
 
     window.onfocus = function () {
