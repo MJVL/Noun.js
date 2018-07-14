@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 window.onload = function() {
     setTimeout(start, 200);
 };
@@ -7,7 +7,7 @@ function start() {
 
     //Helpers
     function lineToAngle(x1, y1, length, radians) {
-        var x2 = x1 + length * Math.cos(radians),
+        let x2 = x1 + length * Math.cos(radians),
             y2 = y1 + length * Math.sin(radians);
         return { x: x2, y: y2 };
     }
@@ -29,7 +29,7 @@ function start() {
         radius: 0,
 
         create: function(x, y, speed, direction) {
-            var obj = Object.create(this);
+            let obj = Object.create(this);
             obj.x = x;
             obj.y = y;
             obj.vx = Math.cos(direction) * speed;
@@ -62,14 +62,12 @@ function start() {
             this.y += this.vy;
         }
     };
-
     //Canvas and settings
     let canvas = document.getElementById("canvas"),
         context = canvas.getContext("2d"),
         width = canvas.width = window.innerWidth,
         height = canvas.height = window.innerHeight,
         stars = [],
-
         layers = [
             { speed: 0.015, scale: 0.2, count: 320 },
             { speed: 0.03, scale: 0.5, count: 50 },
@@ -97,23 +95,12 @@ function start() {
             context.fillStyle = "#243146";
             context.fillRect(0, 0, width, height);
             context.fill();
-
             for (let i = 0; i < stars.length; i += 1) {
                 let star = stars[i];
                 star.update();
                 drawStar(star);
-                if (star.x > width) {
-                    star.x = 0;
-                }
-                if (star.x < 0) {
-                    star.x = width;
-                }
-                if (star.y > height) {
-                    star.y = 0;
-                }
-                if (star.y < 0) {
-                    star.y = height;
-                }
+                star.x = (star.x > width) ? 0 : (star.x < 0) ? width : star.x;
+                star.y = (star.y > height) ? 0 : (star.y < 0) ? height : star.y;
             }
         }
         requestAnimationFrame(update);
