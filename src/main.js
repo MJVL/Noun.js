@@ -27,10 +27,7 @@ var generator = new Vue({
             // Capitalize first character and add ".js" to the end for display
             this.package = this.packageStem.charAt(0).toUpperCase() + this.packageStem.substr(1) + EXTENSION;
 
-            this.firstClick = false;
-
-            this.exists = false;
-            this.cardReady = false;
+            this.firstClick = this.cardReady = false;
 
             this.checkExistence();
         },
