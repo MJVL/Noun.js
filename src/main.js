@@ -98,19 +98,7 @@ function cbfunc(json) {     //the callback function
         generator.card.title = data._id;
         generator.card.link = generator.link;
         generator.card.slug = data.description;
-
-        let currentVer = data['dist-tags'].latest;
-        let currentVerInfo = null;
-
-        for (let version in data.versions) {
-            if (data.versions.hasOwnProperty(version)) {
-                if (data.versions[version].version === currentVer) {
-                    currentVerInfo = data.versions[version];
-                }
-            }
-        }
-
-        generator.card.details = currentVerInfo.version;
+        generator.card.details = data['dist-tags'].latest;
         generator.cardReady = true;
 
    } else {
