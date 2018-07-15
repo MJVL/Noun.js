@@ -48,25 +48,29 @@
                 <!-- Checkmark or 'X' -->
                 <div class="column left">
                     <div class="center">
-                        <i v-if="exists" class="fas fa-check"></i>
-                        <i v-else class="fas fa-times"></i>
+                        <transition name="fade" mode="out-in">
+                            <i v-if="exists" class="fas fa-check" key="1"></i>
+                            <i v-else class="fas fa-times" key="2"></i>
+                        </transition>
                     </div>
                 </div>
 
                 <!-- Text and links -->
                 <div class="column right">
-                    <div v-if="noun">
-                        <h3 style="margin-top: 15px;">Of course this exists,<br/>you're on it right now!</h3>
-                        <p style="margin-top: -10px;">View the source code <a v-bind:href="link" target="_blank">here</a>!</p>
-                    </div>
-                    <div v-else-if="exists">
-                        <h3>This NPM package exists!</h3>
-                        <p>Check it out <a v-bind:href="link" target="_blank">here</a>!</p>
-                    </div>
-                    <div v-else>
-                        <h3>This NPM package doesn't exist...</h3>
-                        <p>... YET! How about you <a href="https://github.com/new" target="_blank">fix that</a>?</p>
-                    </div>
+                    <transition name="fade" mode="out-in">
+                        <div v-if="noun" key="1">
+                            <h3 style="margin-top: 15px;">Of course this exists,<br/>you're on it right now!</h3>
+                            <p style="margin-top: -10px;">View the source code <a v-bind:href="link" target="_blank">here</a>!</p>
+                        </div>
+                        <div v-else-if="exists" key="2">
+                            <h3>This NPM package exists!</h3>
+                            <p>Check it out <a v-bind:href="link" target="_blank">here</a>!</p>
+                        </div>
+                        <div v-else key="3">
+                            <h3>This NPM package doesn't exist...</h3>
+                            <p>... YET! How about you <a href="https://github.com/new" target="_blank">fix that</a>?</p>
+                        </div>
+                    </transition>
                 </div>
             </div>
                 <div id="package-card" class="fade-in">
