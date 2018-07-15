@@ -76,7 +76,7 @@
                             <p class="card-slug">{{ card.slug }}</p>
                             <p class="card-details">{{ card.details }}</p>
                         </div>
-                        <div id="card-middle" v-else-if="exists && !firstClick" key="2">
+                        <div id="card-load" v-else-if="exists && !firstClick" key="2">
                             <spinner></spinner>
                         </div>
                         <div v-else key="3">
