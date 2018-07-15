@@ -1,8 +1,8 @@
 # Mark .js files as .vue files for linguist analysis.
 *.js linguist-language=Vue
 # While these files are technically .js files, all of main.js and components.js are written in Vue so they should be marked as such.
-# constants.js, starfield.js, and timeago.min.js are all purely JavaScript, but marking the repository as Vue is more important than these instances of incorrect flagging.
+# constants.js, starfield.js, and timeago.min.js are all purely JavaScript, but don't matter as these files are smaller than their respective all Vue .js files.
 
-# Ignore animation styling that we didn't write
+# Ignore animation styling that we didn't write.
 animations.css linguist-vendored=false
 hover-min.css linguist-vendored=false
