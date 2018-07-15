@@ -132,3 +132,5 @@ function fetch(url) {
 }
 
 new Vue({ el: '#icon-tray' });
+
+new Vue({ el: '#card-middle' });
