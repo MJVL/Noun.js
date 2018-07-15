@@ -1,4 +1,4 @@
-/* Animations */
+/* Load-In */
 
 .fade-in {
     animation: animationFrames ease 1.5s;
@@ -131,6 +131,8 @@
   }
 }
 
+/* Spinner */
+
 .spinner {
   margin-top: 50px;
   width: 50px;
@@ -182,4 +184,14 @@
     transform: scaleY(1.0);
     -webkit-transform: scaleY(1.0);
   }
+}
+
+/* Transitions */
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.25s ease-out;
+}
+
+.fade-enter, .fade-leave-to {
+  opacity: 0;
 }
