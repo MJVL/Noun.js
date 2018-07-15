@@ -37,9 +37,10 @@
             <github-button></github-button>
         </div>
         <div id="main" class="flex-center">
+
             <!-- Display of the randomized name -->
             <div id="generated-name" class="fade-in">
-             xs   <h1 v-on:click="randomWord">{{ package }}</h1>
+                <h1 v-on:click="randomWord">{{ package }}</h1>
                 <p v-if="firstClick">Click the big text to generate the next name!</p>
                 <p v-else>&nbsp;</p>
             </div>
@@ -50,8 +51,8 @@
                 <div class="column left">
                     <div class="center">
                         <transition name="fade" mode="out-in">
-                            <i v-if="exists" class="fas fa-check" key="1"></i>
-                            <i v-else class="fas fa-times" key="2"></i>
+                            <i v-if="exists" class="fas fa-check hvr-icon-bounce" key="1"></i>
+                            <i v-else class="fas fa-times hvr-icon-bounce" key="2"></i>
                         </transition>
                     </div>
                 </div>
@@ -74,6 +75,8 @@
                     </transition>
                 </div>
             </div>
+
+                <!-- Package Information -->
                 <div id="package-card" class="fade-in">
                     <transition name="fade" mode="out-in">
                         <div v-if="cardReady" key="1">
