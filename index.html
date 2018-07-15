@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
+    <link rel="stylesheet" href="src/static/css/hover-min.css">
 
     <!-- Scripts -->
     <script src="src/data/constants.js"></script>
@@ -38,7 +39,7 @@
         <div id="main" class="flex-center">
             <!-- Display of the randomized name -->
             <div id="generated-name" class="fade-in">
-                <h1 v-on:click="randomWord">{{ package }}</h1>
+             xs   <h1 v-on:click="randomWord">{{ package }}</h1>
                 <p v-if="firstClick">Click the big text to generate the next name!</p>
                 <p v-else>&nbsp;</p>
             </div>
