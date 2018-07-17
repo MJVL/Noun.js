@@ -110,7 +110,7 @@ function cbfunc(json) {     //the callback function
             }
         }
 
-        generator.card.details = currentVerInfo.version || data['dist-tags'].latest;
+        generator.card.details = currentVerInfo.version || currentVer;
         generator.cardReady = true;
 
    } else {
