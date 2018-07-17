@@ -21,7 +21,7 @@ var generator = new Vue({
             // Pick a packageStem that won't result in a div overflow
             // TODO: Allow the user to type in their own package name.
             do {
-                this.packageStem = 'skylight'//NOUNS[Math.floor(Math.random() * NOUNS.length)];
+                this.packageStem = NOUNS[Math.floor(Math.random() * NOUNS.length)];
             } while (this.checkOverflow());
 
             // Capitalize first character and add ".js" to the end for display
