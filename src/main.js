@@ -4,7 +4,6 @@ var generator = new Vue({
         package: DEFAULT,
         packageStem: '',
         exists: true,
-        noun: true,
         link: 'https://github.com/MJVL/Noun.js',
         card: {
           title: '',
@@ -17,7 +16,6 @@ var generator = new Vue({
     },
     methods: {
         randomWord: function() {
-            this.noun = false;
             // Pick a packageStem that won't result in a div overflow
             // TODO: Allow the user to type in their own package name.
             do {
