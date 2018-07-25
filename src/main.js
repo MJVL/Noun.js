@@ -41,25 +41,16 @@ var generator = new Vue({
                     // Parse the result into an object
                     let packages = JSON.parse(result).results;
 
-                    // JS is dumb and I can't access the regular variables from inside a loop...
-                    // so use these temp ones.
-                    let found = false;
-                    let pkgLink = '';
-
                     // Check each "hit" from npmsearch.com's api for an exact match
-                    packages.forEach(function(p) {
+                    packages.forEach(function (p) {
                         if (p.name[0].toLowerCase() === generator.packageStem.toLowerCase()
                             || p.name[0].toLowerCase() === generator.package.toLowerCase()) {
-                            found = true;
+                            generator.$data.exists = true;
 
                             // All NPM packages have this homepage link format
-                            pkgLink = 'http://npmjs.com/package/' + p.name[0];
+                            generator.$data.link = 'http://npmjs.com/package/' + p.name[0];
                         }
                     });
-
-                    // Whack those values back into the Vue
-                    generator.exists = found;
-                    generator.link = pkgLink;
 
                     if (generator.exists === true) {
                         generator.getCardInfo();
