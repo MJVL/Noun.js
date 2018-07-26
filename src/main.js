@@ -25,7 +25,7 @@ var generator = new Vue({
             // Capitalize first character and add ".js" to the end for display
             this.package = this.packageStem.charAt(0).toUpperCase() + this.packageStem.substr(1) + EXTENSION;
 
-            this.firstClick = this.cardReady = false;
+            this.firstClick = this.cardReady = this.exists = false;
 
             this.checkExistence();
         },
@@ -49,6 +49,9 @@ var generator = new Vue({
                             generator.$data.link = 'http://npmjs.com/package/' + p.name[0];
                         }
                     });
+
+                    console.log(generator.exists);
+                    console.log(generator.link);
 
                     if (generator.exists === true) {
                         generator.getCardInfo();
