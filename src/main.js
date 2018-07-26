@@ -40,18 +40,17 @@ var generator = new Vue({
                     let packages = JSON.parse(result).results;
 
                     // Check each "hit" from npmsearch.com's api for an exact match
-                    packages.forEach(function (p) {
+                    packages.forEach(function(p) {
                         if (p.name[0].toLowerCase() === generator.packageStem.toLowerCase()
                             || p.name[0].toLowerCase() === generator.package.toLowerCase()) {
                             generator.$data.exists = true;
 
                             // All NPM packages have this homepage link format
                             generator.$data.link = 'http://npmjs.com/package/' + p.name[0];
+                            
+                            return false;
                         }
                     });
-
-                    console.log(generator.exists);
-                    console.log(generator.link);
 
                     if (generator.exists === true) {
                         generator.getCardInfo();
