@@ -1,8 +1,8 @@
 # Noun.js
 
-![GitHub](https://img.shields.io/github/license/mashape/apistatus.svg)
 [![GitHub issues](https://img.shields.io/github/issues/MJVL/Noun.js.svg)](https://github.com/MJVL/Noun.js/issues)
 [![GitHub closed issues](https://img.shields.io/github/issues-closed/MJVL/Noun.js.svg)](https://github.com/MJVL/Noun.js/issues)
+[![license: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 Website poking fun at dull JavaScript package naming conventions.
 
