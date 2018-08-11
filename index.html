@@ -67,19 +67,19 @@
                         <div v-else-if="exists" key="2">
                              <!-- Package Information -->
                             <div id="package-card">
-                            <transition name="fade" mode="out-in">
-                                <div v-if="cardReady" key="1">
-                                    <a class="card-title" v-bind:href="card.link">{{ card.title }}</a>
-                                    <p class="card-slug">{{ card.slug }}</p>
-                                    <p class="card-details">{{ card.details }}</p>
-                                </div>
-                                <div id="card-load" v-else-if="exists && !firstClick" key="2">
-                                    <spinner></spinner>
-                                </div>
-                                <div v-else key="3">
-                                    <p class="center big">?</p>
-                                </div>
-                            </transition>
+                                <transition name="fade" mode="out-in">
+                                    <div v-if="cardReady" key="1">
+                                        <a class="card-title" v-bind:href="card.link">{{ card.title }}</a>
+                                        <p class="card-slug">{{ card.slug }}</p>
+                                        <p class="card-details">{{ card.details }}</p>
+                                    </div>
+                                    <div id="card-load" v-else-if="exists && !firstClick" key="2">
+                                        <spinner></spinner>
+                                    </div>
+                                    <div v-else key="3">
+                                        <p class="center big">?</p>
+                                    </div>
+                                </transition>
                             </div>
                         </div>
                         <div v-else key="3">

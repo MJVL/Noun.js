@@ -142,20 +142,13 @@ canvas {
 
 /* Package card */
 
-#package-card {
-  width: 20em;
-  height: 8em;
 
+#package-card {
   text-align: left;
 
-  background-color: #deebff;
-
-  border-radius: 10px;
-
   margin: 0 auto;
-  margin-top: 30px;
-
-  padding-top: 35px;
+  margin-top: 15px;
+  
   padding-bottom: 35px;
   padding-left: 50px;
   padding-right: 50px;
