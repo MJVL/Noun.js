@@ -57,6 +57,7 @@
                 </div>
 
                 <!-- Text and Links -->
+                
                 <div class="column right">
                     <transition name="fade" mode="out-in">
                         <div v-if="firstClick" key="1">
@@ -64,8 +65,19 @@
                             <p style="margin-top: -10px;">View the source code <a v-bind:href="link" target="_blank">here</a>!</p>
                         </div>
                         <div v-else-if="exists" key="2">
-                            <h3>This NPM package exists!</h3>
-                            <p>Check it out <a v-bind:href="link" target="_blank">here</a>!</p>
+                             <!-- Package Information -->
+                            <div id="package-card">
+                                <transition name="fade" mode="out-in">
+                                    <div id="inner" v-if="cardReady" key="1">
+                                        <a class="card-title" v-bind:href="card.link">{{ card.title }}</a>
+                                        <p class="card-slug">{{ card.slug }}</p>
+                                        <p class="card-details">{{ card.details }}</p>
+                                    </div>
+                                    <div id="card-load" v-else-if="exists && !firstClick" key="2">
+                                        <spinner></spinner>
+                                    </div>
+                                </transition>
+                            </div>
                         </div>
                         <div v-else key="3">
                             <h3>This NPM package doesn't exist...</h3>
@@ -75,22 +87,6 @@
                 </div>
             </div>
 
-                <!-- Package Information -->
-                <div id="package-card" class="fade-in">
-                    <transition name="fade" mode="out-in">
-                        <div v-if="cardReady" key="1">
-                            <a class="card-title" v-bind:href="card.link">{{ card.title }}</a>
-                            <p class="card-slug">{{ card.slug }}</p>
-                            <p class="card-details">{{ card.details }}</p>
-                        </div>
-                        <div id="card-load" v-else-if="exists && !firstClick" key="2">
-                            <spinner></spinner>
-                        </div>
-                        <div v-else key="3">
-                            <p class="center big">?</p>
-                        </div>
-                    </transition>
-                </div>
         </div>
         <script src="src/main.js"></script>
     </canvas>
