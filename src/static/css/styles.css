@@ -154,6 +154,8 @@ canvas {
   padding-bottom: 35px;
   padding-left: 50px;
   padding-right: 50px;
+
+  overflow: hidden;
 }
 
 #package-card * {
@@ -166,7 +168,7 @@ canvas {
     float: none;
     vertical-align: middle;
     white-space: normal;
-    overflow: auto;
+    overflow: scroll;
 }
 
 .card-title {
