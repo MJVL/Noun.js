@@ -74,6 +74,8 @@ canvas {
 
 .right {
     width: 29em;
+    display: table-cell;
+    vertical-align: middle;
 }
 
 .column .center {
@@ -148,7 +150,7 @@ canvas {
 
   margin: 0 auto;
   margin-top: 15px;
-  
+
   padding-bottom: 35px;
   padding-left: 50px;
   padding-right: 50px;
@@ -156,6 +158,15 @@ canvas {
 
 #package-card * {
   text-align: left;
+}
+
+#inner {
+    height: 9em;
+    display: inline-block;
+    float: none;
+    vertical-align: middle;
+    white-space: normal;
+    overflow: auto;
 }
 
 .card-title {
