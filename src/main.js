@@ -33,7 +33,6 @@ var generator = new Vue({
             jQuery.ajax({
                 url: 'https://npmsearch.com/query?q=' + this.packageStem + '&fields=name',
                 success: function (result) {
-                    // TODO: Little red balloon on error instead of using alert()
                     if (result.isOk === false) alert(result.message);
 
                     // Parse the result into an object
@@ -59,9 +58,19 @@ var generator = new Vue({
             });
         },
         getCardInfo: function() {
-            // Get the info for the card
-            // See end of file for details on why use fetch() and why JS is dumb.
-            fetch('https://registry.npmjs.org/' + generator.packageStem);
+            jQuery.ajax({
+                url: 'https://cors-anywhere.herokuapp.com/https://registry.npmjs.org/' + generator.packageStem,
+                success: function (result) {
+                    console.log(result);
+                },
+                dataType: 'json',
+                headers: {
+                    'Access-Control-Allow-Credentials' : true,
+                    'Access-Control-Allow-Origin':'*',
+                    'Access-Control-Allow-Methods':'GET',
+                    'Access-Control-Allow-Headers':'application/json',
+                },
+            });
         },
         checkOverflow: function() {
             return this.packageStem.indexOf('-') !== -1 && this.packageStem.length >= 10;
@@ -105,7 +114,6 @@ function cbfunc(json) {     //the callback function
         generator.cardReady = true;
 
    } else {
-        //alert('Error: nothing found');
         generator.cardReady = false;
         return false;
    }
