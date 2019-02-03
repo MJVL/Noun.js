@@ -33,7 +33,6 @@ var generator = new Vue({
             jQuery.ajax({
                 url: 'https://npmsearch.com/query?q=' + this.packageStem + '&fields=name',
                 success: function (result) {
-                    // TODO: Little red balloon on error instead of using alert()
                     if (result.isOk === false) alert(result.message);
 
                     // Parse the result into an object
@@ -59,68 +58,41 @@ var generator = new Vue({
             });
         },
         getCardInfo: function() {
-            // Get the info for the card
-            // See end of file for details on why use fetch() and why JS is dumb.
-            fetch('https://registry.npmjs.org/' + generator.packageStem);
+            jQuery.ajax({
+                url: 'https://cors-anywhere.herokuapp.com/https://registry.npmjs.org/' + generator.packageStem,
+                dataType: 'json',
+                headers: {
+                    'Access-Control-Allow-Credentials' : true,
+                    'Access-Control-Allow-Origin':'*',
+                    'Access-Control-Allow-Methods':'GET',
+                    'Access-Control-Allow-Headers':'application/json',
+                },
+                success: function (result) {
+                    generator.card.title = result._id;
+                    generator.card.link = generator.link;
+                    generator.card.slug = result.description;
+
+                    let currentVer = result['dist-tags'].latest;
+                    let currentVerInfo = null;
+
+                    for (let version in result.versions) {
+                        if (result.versions.hasOwnProperty(version)) {
+                            if (result.versions[version].version === currentVer) {
+                                currentVerInfo = result.versions[version];
+                            }
+                        }
+                    }
+                
+                    generator.card.details = (currentVerInfo !== null) ? currentVerInfo.version : currentVer;
+                    generator.cardReady = true;
+                },
+            });
         },
         checkOverflow: function() {
             return this.packageStem.indexOf('-') !== -1 && this.packageStem.length >= 10;
         }
     }
 });
-
-// JavaScript is dumb. All of this is to allow me to make a cross-site
-// JSON request without modifying headers using PHP.
-
-// https://stackoverflow.com/questions/20510336/get-data-json-format-from-another-domain-without-jsonp
-
-function getJSON(url) {  //quick and dirty
-  let script = document.createElement('script');
-  script.setAttribute('src', url);
-  script.setAttribute('type', 'text/javascript');
-  document.getElementsByTagName('head')[0].appendChild(script);
-}
-
-function cbfunc(json) {     //the callback function
-   if (json.query.count) {
-        let data = json.query.results.json;
-
-        // Update generator card thing
-        generator.card.title = data._id;
-        generator.card.link = generator.link;
-        generator.card.slug = data.description;
-       
-        let currentVer = data['dist-tags'].latest;
-        let currentVerInfo = null;
-
-        for (let version in data.versions) {
-            if (data.versions.hasOwnProperty(version)) {
-                if (data.versions[version].version === currentVer) {
-                    currentVerInfo = data.versions[version];
-                }
-            }
-        }
-
-        generator.card.details = (currentVerInfo !== null) ? currentVerInfo.version : currentVer;
-        generator.cardReady = true;
-
-   } else {
-        //alert('Error: nothing found');
-        generator.cardReady = false;
-        return false;
-   }
-}
-
-function fetch(url) {
-   let yql="select * " +
-           " from json" +
-           " where url='" + url + "';";
-   yql="https://query.yahooapis.com/v1/public/yql?q=" +
-       encodeURIComponent(yql) +
-       "&format=json" +
-       "&callback=cbfunc";
-   getJSON(yql);
-}
 
 new Vue({ el: '#icon-tray' });
 
