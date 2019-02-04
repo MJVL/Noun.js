@@ -200,3 +200,11 @@ canvas {
 ::-webkit-scrollbar { 
     display: none; 
 }
+
+@-moz-document url-prefix() {
+    html,body{overflow: hidden !important;}
+}
+
+html {
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+}
