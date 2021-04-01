@@ -59,7 +59,7 @@ var generator = new Vue({
         },
         getCardInfo: function() {
             jQuery.ajax({
-                url: 'https://cors-anywhere.herokuapp.com/https://registry.npmjs.org/' + generator.packageStem,
+                url: 'https://cors.bridged.cc/https://registry.npmjs.org/' + generator.packageStem,
                 dataType: 'json',
                 headers: {
                     'Access-Control-Allow-Credentials' : true,
