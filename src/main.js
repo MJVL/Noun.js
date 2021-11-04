@@ -59,7 +59,7 @@ var generator = new Vue({
         },
         getCardInfo: function() {
             jQuery.ajax({
-                url: 'https://cors.bridged.cc/https://registry.npmjs.org/' + generator.packageStem,
+                url: 'https://api.codetabs.com/v1/proxy?quest=https://registry.npmjs.org/' + generator.packageStem,
                 dataType: 'json',
                 headers: {
                     'Access-Control-Allow-Credentials' : true,
