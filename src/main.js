@@ -17,7 +17,6 @@ var generator = new Vue({
     methods: {
         randomWord: function() {
             // Pick a packageStem that won't result in a div overflow
-            // TODO: Allow the user to type in their own package name.
             do {
                 this.packageStem = NOUNS[Math.floor(Math.random() * NOUNS.length)];
             } while (this.checkOverflow());
@@ -31,61 +30,20 @@ var generator = new Vue({
         },
         checkExistence: function() {
             jQuery.ajax({
-                url: 'https://npmsearch.com/query?q=' + this.packageStem + '&fields=name',
+                url: 'https://api.npms.io/v2/search?q=' + generator.packageStem + "&size=1",
                 success: function (result) {
-                    if (result.isOk === false) alert(result.message);
+                    if (result === undefined || result.results.length === 0) return;
 
-                    // Parse the result into an object
-                    let packages = JSON.parse(result).results;
-
-                    // Check each "hit" from npmsearch.com's api for an exact match
-                    packages.forEach(function(p) {
-                        if (p.name[0].toLowerCase() === generator.packageStem.toLowerCase()
-                            || p.name[0].toLowerCase() === generator.package.toLowerCase()) {
-                            generator.$data.exists = true;
-
-                            // All NPM packages have this homepage link format
-                            generator.$data.link = 'http://npmjs.com/package/' + p.name[0];
-                            
-                            return false;
-                        }
-                    });
-
-                    if (generator.exists === true) {
-                        generator.getCardInfo();
+                    let package = result.results[0]['package'];
+                    if (package.name.toLowerCase() === generator.packageStem.toLowerCase() || package.name.toLowerCase() === generator.package.toLowerCase()) {
+                        generator.exists = true;
+                        generator.card.title = package.name;
+                        generator.card.link = 'http://npmjs.com/package/' + package.name;
+                        generator.card.slug = package.description;
+                        generator.card.details = package.version;
+                        generator.cardReady = true;
                     }
                 }
-            });
-        },
-        getCardInfo: function() {
-            jQuery.ajax({
-                url: 'https://api.codetabs.com/v1/proxy?quest=https://registry.npmjs.org/' + generator.packageStem,
-                dataType: 'json',
-                headers: {
-                    'Access-Control-Allow-Credentials' : true,
-                    'Access-Control-Allow-Origin':'*',
-                    'Access-Control-Allow-Methods':'GET',
-                    'Access-Control-Allow-Headers':'application/json',
-                },
-                success: function (result) {
-                    generator.card.title = result._id;
-                    generator.card.link = generator.link;
-                    generator.card.slug = result.description;
-
-                    let currentVer = result['dist-tags'].latest;
-                    let currentVerInfo = null;
-
-                    for (let version in result.versions) {
-                        if (result.versions.hasOwnProperty(version)) {
-                            if (result.versions[version].version === currentVer) {
-                                currentVerInfo = result.versions[version];
-                            }
-                        }
-                    }
-                
-                    generator.card.details = (currentVerInfo !== null) ? currentVerInfo.version : currentVer;
-                    generator.cardReady = true;
-                },
             });
         },
         checkOverflow: function() {
