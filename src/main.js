@@ -37,10 +37,10 @@ var generator = new Vue({
                     let package = result.results[0]['package'];
                     if (package.name.toLowerCase() === generator.packageStem.toLowerCase() || package.name.toLowerCase() === generator.package.toLowerCase()) {
                         generator.exists = true;
-                        generator.card.title = package.name;
-                        generator.card.link = 'http://npmjs.com/package/' + package.name;
-                        generator.card.slug = package.description;
-                        generator.card.details = package.version;
+                        generator.card.title = DOMPurify.sanitize(package.name);
+                        generator.card.link = 'http://npmjs.com/package/' + DOMPurify.sanitize(package.name);
+                        generator.card.slug = DOMPurify.sanitize(package.description);
+                        generator.card.details = DOMPurify.sanitize(package.version);
                         generator.cardReady = true;
                     }
                 }
